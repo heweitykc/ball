@@ -6,7 +6,7 @@ import (
     "log"
     "net/http"
 	"time"
-	"strconv"
+//	"strconv"
 )
 
 var GlobalRooms = make(map[string]*Room)
@@ -43,7 +43,7 @@ func (m *Room) IsFull() bool{
 }
 
 func (m *Room) Exec(cmd string, player *websocket.Conn){
-	
+	fmt.Println("cmd:", cmd)
 }
 
 func (m *Room) Update(){
@@ -83,9 +83,9 @@ func Echo(ws *websocket.Conn) {
             fmt.Println("Can't receive")
             break
         }
+		room.Exec(reply, ws)        
  
-        fmt.Println("Received back from client: " + reply)
- 
+		/*
         msg := "Received:  " + strconv.Itoa(room.id) + " " + reply 
         fmt.Println("Sending to client: " + msg + " ")
  
@@ -93,6 +93,7 @@ func Echo(ws *websocket.Conn) {
             fmt.Println("Can't send")
             break
         }		
+		*/
     }
 }
  
