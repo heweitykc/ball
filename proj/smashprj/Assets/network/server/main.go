@@ -6,7 +6,7 @@ import (
     "log"
     "net/http"
 	"time"
-//	"strconv"
+	"strconv"
 )
 
 var GlobalRooms = make(map[string]*Room)
@@ -85,15 +85,14 @@ func Echo(ws *websocket.Conn) {
         }
 		room.Exec(reply, ws)        
  
-		/*
-        msg := "Received:  " + strconv.Itoa(room.id) + " " + reply 
+		
+        msg := "Received:  " + strconv.Itoa(room.id) + " " + reply + string(0)		
         fmt.Println("Sending to client: " + msg + " ")
- 
         if err = websocket.Message.Send(ws, msg); err != nil {
             fmt.Println("Can't send")
             break
         }		
-		*/
+		
     }
 }
  
