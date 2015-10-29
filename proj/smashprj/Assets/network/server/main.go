@@ -6,9 +6,14 @@ import (
     "log"
     "net/http"
 	"time"
-	"strconv"
+//	"strconv"
 )
 
+const (
+  START, END, HELLO = "1", "6", "100"
+  UP, DOWN, RIGHT, LEFT = "2", "3", "4", "5"
+)
+ 
 var GlobalRooms = make(map[string]*Room)
 var roomIndex int = 0
 
@@ -27,12 +32,26 @@ func (m *Room) Init(){
 func (m *Room) AddPlayer(player *websocket.Conn){
 	if m.player0 == nil {
 		m.player0 = player
+		m.broadcast(HELLO, m.player0)
 		return
 	}
 	if m.player1 == nil {
-		m.player1 = player
+		m.player1 = player		
+	}
+	
+	m.broadcast(START, m.player0)
+	m.broadcast(START, m.player1)
+}
+
+//1 开始; 2 上; 3 下; 4 左; 5 右; 6 结束;
+func (m *Room) broadcast(msg string, player *websocket.Conn){
+	if player == nil {
 		return
 	}
+	
+	if err := websocket.Message.Send(player, msg); err != nil {
+        fmt.Println("Can't send", err)
+    }
 }
 
 func (m *Room) IsFull() bool{
@@ -49,7 +68,7 @@ func (m *Room) Exec(cmd string, player *websocket.Conn){
 func (m *Room) Update(){
 	for {
 		fmt.Println(m.id," run...")
-		time.Sleep(3*time.Second)	
+		time.Sleep(5*time.Second)	
 	}
 }
 
@@ -76,23 +95,21 @@ func Echo(ws *websocket.Conn) {
     var err error
 	room := SearchRoom(ws)
     for {
- 
         var reply string
  
         if err = websocket.Message.Receive(ws, &reply); err != nil {
             fmt.Println("Can't receive")
             break
         }
-		room.Exec(reply, ws)        
- 
-		
+		room.Exec(reply, ws)
+		/*
         msg := "Received:  " + strconv.Itoa(room.id) + " " + reply + string(0)		
         fmt.Println("Sending to client: " + msg + " ")
         if err = websocket.Message.Send(ws, msg); err != nil {
             fmt.Println("Can't send")
             break
         }		
-		
+		*/
     }
 }
  

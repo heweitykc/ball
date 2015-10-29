@@ -16,7 +16,7 @@ var game_file_list = [
 	"bin-debug/components/IconButton.js",
 	"bin-debug/LoadingUI.js",
 	"bin-debug/Main.js",
-	"bin-debug/netclient.js",
+	"bin-debug/NetClient.js",
 	"bin-debug/org/xzper/app/AppConfig.js",
 	"bin-debug/org/xzper/app/AppContainer.js",
 	"bin-debug/org/xzper/app/IApp.js",

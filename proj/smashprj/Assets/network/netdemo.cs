@@ -20,8 +20,11 @@ public class netdemo : MonoBehaviour {
             bts[i] = 0;
         }
     }
-		
+    int total = 0;
 	void Update () {
+        foreach (var b in bts) {
+            total++;
+        }
         if (client.Available > 0) {
             clearBts();
             stream.Read(bts, 0, bts.Length);

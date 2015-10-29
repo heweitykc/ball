@@ -12,8 +12,7 @@ class Main extends egret.Sprite{
         this.addEventListener(egret.Event.ADDED_TO_STAGE, this.init, this)
     }
 
-    private appContainer:game.AppContainer;
-    private client:NetClient;
+    private appContainer:game.AppContainer;    
 
     private init(event:egret.Event):void {
         //设置自定义的屏幕适配方式
@@ -31,8 +30,7 @@ class Main extends egret.Sprite{
         RES.addEventListener(RES.ResourceEvent.CONFIG_COMPLETE, this.onConfigComplete, this);
         RES.loadConfig("resource/resource.json", "resource/");
         
-        this.client = new NetClient();
-        this.client.Connect();
+
     }
 
     /**
