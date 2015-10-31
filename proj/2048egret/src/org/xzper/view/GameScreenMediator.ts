@@ -126,6 +126,14 @@ module game {
                         break;
                 }
                 this.lastMoveTime = egret.getTimer();
+                if(direction == 0)
+                    NetClient.instance.SendMsg(CSCommand.UP);
+                else if(direction == 1)
+                    NetClient.instance.SendMsg(CSCommand.RIGHT);
+                else if(direction == 2)
+                    NetClient.instance.SendMsg(CSCommand.DOWN);
+                else if(direction == 3)
+                    NetClient.instance.SendMsg(CSCommand.LEFT);
             }
         }
 

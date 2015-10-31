@@ -67,7 +67,7 @@ func (m *Room) Exec(cmd string, player *websocket.Conn){
 
 func (m *Room) Update(){
 	for {
-		fmt.Println(m.id," run...")
+		//fmt.Println(m.id," run...")
 		time.Sleep(5*time.Second)	
 	}
 }
@@ -86,7 +86,7 @@ func SearchRoom(player *websocket.Conn) *Room{
 	room.AddPlayer(player)
 	GlobalRooms[string(roomIndex)] = room
 	roomIndex++
-	fmt.Println("add new room ", room.id)
+	fmt.Println("add new room-", room.id)
 	return room
 }
 
@@ -102,14 +102,6 @@ func Echo(ws *websocket.Conn) {
             break
         }
 		room.Exec(reply, ws)
-		/*
-        msg := "Received:  " + strconv.Itoa(room.id) + " " + reply + string(0)		
-        fmt.Println("Sending to client: " + msg + " ")
-        if err = websocket.Message.Send(ws, msg); err != nil {
-            fmt.Println("Can't send")
-            break
-        }		
-		*/
     }
 }
  

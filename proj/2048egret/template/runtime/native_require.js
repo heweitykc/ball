@@ -22,6 +22,7 @@ var game_file_list = [
 	"bin-debug/org/xzper/app/IApp.js",
 	"bin-debug/org/xzper/ApplicationFacade.js",
 	"bin-debug/org/xzper/controller/commands/GameCommand.js",
+	"bin-debug/org/xzper/controller/commands/NetCommand.js",
 	"bin-debug/org/xzper/controller/commands/SceneCommand.js",
 	"bin-debug/org/xzper/controller/ControllerPrepCommand.js",
 	"bin-debug/org/xzper/controller/ModelPrepCommand.js",

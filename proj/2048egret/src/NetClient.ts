@@ -3,7 +3,10 @@
  * @author 
  *
  */
+
+
 class NetClient {
+    public static instance: NetClient;
     private socket: egret.WebSocket;
     public msgCallback: Function;
 	public constructor() {
@@ -21,12 +24,18 @@ class NetClient {
     }
     
     private onReceiveMessage(evt: egret.ProgressEvent): void {
-        console.log("recv data : " + evt.bytesTotal);
+        //console.log("recv data : " + evt.bytesTotal);
         //var bts: egret.ByteArray = new egret.ByteArray();
         //this.socket.readBytes(bts);
     
         var msg = this.socket.readUTF();
         this.msgCallback(msg);
+    }
+    
+    public SendMsg(msg: string): void
+    {
+        this.socket.writeUTF(msg);
+        this.socket.flush();
     }
     
     private onSocketOpen(evt: egret.ProgressEvent): void {

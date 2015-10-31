@@ -48,6 +48,7 @@ module game {
                     gameProxy.reset();
 					gridProxy.reset();
 					gridProxy.addStartTiles();
+                    (new NetCommand()).register();
 					break;
 				}
 				case GameCommand.UPDATE_SCORE:{

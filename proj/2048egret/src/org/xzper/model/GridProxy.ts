@@ -31,17 +31,9 @@ module game {
 		private startTiles:number = 2;
 		private playerTurn:boolean = true;
 		private size:number;
-        private client: NetClient;
         
-		public constructor(){
-			super(GridProxy.NAME);
-            this.client = new NetClient();
-            this.client.Connect();
-            this.client.msgCallback = this.msgCallback;
-		}
-		
-        private msgCallback(msg:string): void {
-            console.log(msg);   
+        public constructor() {
+            super(GridProxy.NAME);
         }
 		
 		/**
