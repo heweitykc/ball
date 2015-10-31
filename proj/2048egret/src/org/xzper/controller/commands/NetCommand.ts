@@ -49,7 +49,7 @@ module game {
                 var arr = msgbody.split("|");
                 for(var i = 0;i < arr.length;i++) {
                     var arr0 = arr[i].split(",");
-                    var pos = { x: arr0[0],y: arr0[1] };
+                    var pos = { x: Number(arr0[0]),y: Number(arr0[1]) };
                     gridProxy.addNetTile(pos,2);
                 }
                 CommonData.isRunning = true;

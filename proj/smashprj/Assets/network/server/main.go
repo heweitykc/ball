@@ -12,7 +12,7 @@ import (
 const (  
   END, HELLO0, HELLO1 = "6", "100", "101"
   UP, DOWN, RIGHT, LEFT = "2", "3", "4", "5"
-  START = "82,2|3,3"	//8n,n,n,...
+  START = "80,0|1,2"	//8n,n,n,...
   TILE =  "9"	//9n
 )
  
