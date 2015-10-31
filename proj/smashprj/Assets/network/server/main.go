@@ -9,9 +9,11 @@ import (
 //	"strconv"
 )
 
-const (
-  START, END, HELLO = "1", "6", "100"
+const (  
+  END, HELLO0, HELLO1 = "6", "100", "101"
   UP, DOWN, RIGHT, LEFT = "2", "3", "4", "5"
+  START = "82,2|3,3"	//8n,n,n,...
+  TILE =  "9"	//9n
 )
  
 var GlobalRooms = make(map[string]*Room)
@@ -32,11 +34,12 @@ func (m *Room) Init(){
 func (m *Room) AddPlayer(player *websocket.Conn){
 	if m.player0 == nil {
 		m.player0 = player
-		m.broadcast(HELLO, m.player0)
+		m.broadcast(HELLO0, m.player0)
 		return
 	}
 	if m.player1 == nil {
-		m.player1 = player		
+		m.player1 = player
+		m.broadcast(HELLO1, m.player1)
 	}
 	
 	m.broadcast(START, m.player0)
@@ -63,6 +66,8 @@ func (m *Room) IsFull() bool{
 
 func (m *Room) Exec(cmd string, player *websocket.Conn){
 	fmt.Println("cmd:", cmd)
+	m.broadcast(cmd, m.player0)
+	m.broadcast(cmd, m.player1)
 }
 
 func (m *Room) Update(){
