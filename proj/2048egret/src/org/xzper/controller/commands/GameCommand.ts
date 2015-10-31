@@ -35,7 +35,7 @@ module game {
 			this.facade.registerCommand(GameCommand.START_GAME , GameCommand);
             this.facade.registerCommand(GameCommand.FINISH_GAME , GameCommand);
             this.facade.registerCommand(GameCommand.UPDATE_SCORE , GameCommand);
-			this.facade.registerCommand(GameCommand.MOVE_TILE , GameCommand);
+			//this.facade.registerCommand(GameCommand.MOVE_TILE , GameCommand);
 		}
 		
 		public execute(notification:puremvc.INotification):void{
@@ -47,7 +47,7 @@ module game {
                     this.sendNotification(SceneCommand.CHANGE,2);
                     gameProxy.reset();
 					gridProxy.reset();
-					gridProxy.addStartTiles();
+					//gridProxy.addStartTiles(); //由服务端发送
                     (new NetCommand()).register();
 					break;
 				}

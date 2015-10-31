@@ -35,7 +35,10 @@ module game {
 		 * 游戏是否开始
 		 */
 		public static isRunning:boolean = false;
-		
+        public static socket: egret.WebSocket;
+        public static id: number;    // 0/1
+        public static step: number=0;    // 步骤        
+        public static currentTile:any;    //当前随机出来的tile {x:,y:}
 		public constructor(){
 		}
 	}

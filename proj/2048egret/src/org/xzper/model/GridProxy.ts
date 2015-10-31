@@ -194,15 +194,21 @@ module game {
 		 * 随机添加一个格子
 		 */
 		private addRandomTile():void{
-			if (this.cellsAvailable()) {
-				var position:any = this.randomAvailableCell;
-				var tile:TileVO = new TileVO();
-				tile.x = position.x;
-				tile.y = position.y;
-				tile.value = Math.random() < 0.9 ? 2 : 4;
-				this.insertTile(tile);
-			}
+            var rndpos = this.randomAvailableCell;
+            CommonData.currentTile = rndpos;
+            this.addNetTile(rndpos, 2);
 		}
+		
+        public addNetTile(pos:any,v:number): void {
+            if(this.cellsAvailable()) {
+                var position: any = pos;
+                var tile: TileVO = new TileVO();
+                tile.x = position.x;
+                tile.y = position.y;
+                tile.value = v;
+                this.insertTile(tile);
+            }
+        }
 		
 		/**
 		 * 是否能够继续游戏
