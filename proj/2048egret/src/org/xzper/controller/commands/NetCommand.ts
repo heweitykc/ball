@@ -98,8 +98,8 @@ module game {
             CommonData.socket.addEventListener(egret.ProgressEvent.SOCKET_DATA,this.onReceiveMessage,this);
             CommonData.socket.addEventListener(egret.Event.CONNECT,this.onSocketOpen,this);
             CommonData.socket.addEventListener(egret.Event.CLOSE,this.onSocketClose,this);
-            //this.socket.connectByUrl("ws://182.254.149.35:1234/socket");
-            CommonData.socket.connectByUrl("ws://127.0.0.1:1234/socket");
+            CommonData.socket.connectByUrl("ws://182.254.149.35:1234/socket");
+            //CommonData.socket.connectByUrl("ws://127.0.0.1:1234/socket");
             console.log("socket start");
         }
 

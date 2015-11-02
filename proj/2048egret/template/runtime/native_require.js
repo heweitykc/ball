@@ -20,15 +20,15 @@ var game_file_list = [
 	"bin-debug/org/xzper/app/AppContainer.js",
 	"bin-debug/org/xzper/app/IApp.js",
 	"bin-debug/org/xzper/ApplicationFacade.js",
-	"bin-debug/org/xzper/controller/commands/gamecommand.js",
-	"bin-debug/org/xzper/controller/commands/netcommand.js",
+	"bin-debug/org/xzper/controller/commands/GameCommand.js",
+	"bin-debug/org/xzper/controller/commands/NetCommand.js",
 	"bin-debug/org/xzper/controller/commands/SceneCommand.js",
 	"bin-debug/org/xzper/controller/ControllerPrepCommand.js",
 	"bin-debug/org/xzper/controller/ModelPrepCommand.js",
 	"bin-debug/org/xzper/controller/StartupCommand.js",
 	"bin-debug/org/xzper/controller/ViewPrepCommand.js",
 	"bin-debug/org/xzper/model/common/Level.js",
-	"bin-debug/org/xzper/model/common/commondata.js",
+	"bin-debug/org/xzper/model/common/CommonData.js",
 	"bin-debug/org/xzper/model/GameProxy.js",
 	"bin-debug/org/xzper/model/GridProxy.js",
 	"bin-debug/org/xzper/model/vos/TileVO.js",
@@ -68,6 +68,7 @@ var game_file_list = [
 	"bin-debug/skin/MainGameUISkin.g.js",
 	"bin-debug/skin/SettingScreenSkin.g.js",
 	"bin-debug/skin/StartScreenSkin.g.js",
+	"bin-debug/ThemeAdapter.js",
 	//----auto game_file_list end----
 ];
 
